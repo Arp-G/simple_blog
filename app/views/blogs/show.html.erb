@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div class="show-blog">
+
+<p class="title">
+  <span class="title-name"><%= @blog.title %></span> written by <span class="title-author"><%= @blog.author %></span>
+</p>
+
+ 
+ <p class="content"> <%= @blog.content %> </p>
+
+<%= link_to 'Download pdf', blog_pdf_path(@blog) %> |
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+</div>

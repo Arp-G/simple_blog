@@ -1,0 +1,26 @@
+<h1> Simple Blogs ! </h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'search_form' %>
+
+<h3>Blogs: </h3>
+
+<ol>
+
+    <% @blogs.each do |blog| %>
+
+      <li class="blog-posts" >
+        <p> <b> <%= blog.title %> </b> written by <%= blog.author %></p>
+        <p><%= link_to 'Show', blog %> <%= link_to 'Edit', edit_blog_path(blog) %> <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        <p>Posted <%= time_ago_in_words(blog.created_at) %></p>
+        <br>
+      </li>
+      
+
+    <% end %>
+</ol>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path %>

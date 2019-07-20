@@ -1,0 +1,9 @@
+
+<%= form_tag("blogs/search",:method => "get") do%>
+
+<%=label :blog,"Search for blogs by title or author name:" %>
+<br><br>
+<%=text_field_tag :search ,nil,required: true%>
+<%=submit_tag "Search !"%>
+
+<% end %>

@@ -1,0 +1,25 @@
+<h2> Search results </h2>
+
+<% unless @result.size>0 %>
+
+	<div> There where no matching blogs for your query </div>
+
+<% else %>
+
+	<div> <%= @result.size %> blogs matched your search query </div>
+
+	<ol>
+		<% @result.each do |i| %>
+			<li> 
+				<div> 
+			 		<p> <b> Title: </b> <%=i.title %>  </p>
+			 		<p> <b> Author: </b> <%=i.author %> </p>
+			 		<p> <%= link_to "Visit this blog" , blog_path(i)  %> </p>
+				</div>
+			</li>
+		<% end %>
+	</ol>
+
+<% end %>
+
+<%= link_to "Back", blogs_path  %>
