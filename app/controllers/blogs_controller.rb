@@ -1,3 +1,5 @@
+require "csv"
+
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
@@ -60,6 +62,10 @@ class BlogsController < ApplicationController
       disposition: 'inline'
   end
 
+  def get_csv
+    send_data make_csv, filename: "blog_#{@blog.title}_comments.csv"
+  end
+
 
   private
 
@@ -85,6 +91,20 @@ class BlogsController < ApplicationController
 
         STR
       end
+    end
+
+    def make_csv
+
+      headings = %w{writter content created_at} 
+      @blog = Blog.find(params[:blog_id])
+      comments = @blog.comments.order("created_at desc")
+
+      CSV.generate do |csv|
+        comments.each do |comment|
+          csv << headings.map{ |attr| comment.send(attr) }
+        end
+      end
+      
     end
 
 end

@@ -13,3 +13,35 @@
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
 </div>
+
+
+<h2>Comments: </h2>
+<div class="comments">
+
+<div class="comments-count"><%= @blog.comments.size %> comments for this blog </div>
+<br>
+<%= link_to 'Download comments csv', blog_csv_path(@blog) %>
+<br>
+<%=render "comment_form.html.erb" %>
+
+<% @blog.comments.order("created_at desc").each do |comment| %>
+
+  <div class="comment">
+
+    <div class="comment-author">
+      <%= comment.writter %> commented...
+    </div>
+
+    <div class="comment-content">
+      <%= comment.content %>
+    </div>
+
+    <div class="comment-time">
+      <%= time_ago_in_words(comment.created_at) %>
+    </div>
+
+  </div>
+
+<% end %>
+
+</div>

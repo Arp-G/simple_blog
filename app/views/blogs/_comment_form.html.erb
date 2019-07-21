@@ -1,0 +1,10 @@
+<%= form_tag(blog_comments_path(@blog),:method=>"post",:class => "comment-form") do%>
+	<%= label "writter","Name" %>
+	<br>
+	<%= text_field_tag "comment[writter]" %> 
+	<br>
+	<br>
+	<%= text_area_tag "comment[content]" , nil ,placeholder: "Write your comment here...", cols: "20", rows: "10" %>
+	<br>
+	<%= submit_tag  "Post Comment"%>
+<% end %>

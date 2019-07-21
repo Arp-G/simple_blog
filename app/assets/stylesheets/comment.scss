@@ -1,0 +1,28 @@
+// Place all the styles related to the comment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comment-form{
+	margin: 10px;
+	margin-bottom: 30px;
+}
+
+.comment{
+	
+	border: 2px dashed grey;
+	padding: 5px;
+	padding-left: 10px;
+	margin: 10px;
+	width: 25%;
+}
+
+.comment-content{
+	padding-top: 30px;
+}
+
+.comment-time{
+	padding-top: 50px;
+}
+
+
